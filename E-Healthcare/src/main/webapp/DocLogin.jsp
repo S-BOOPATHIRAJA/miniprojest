@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body id="i">
 <form action="DocLoginCon">
 <div id="one">
 
@@ -63,7 +63,11 @@ height: 40px;
 text-align: center;
 
 }
-
+#i
+{
+background-image: url("images/pic1.jpg");
+background-size: cover;
+}
 
 </style>
 </html>

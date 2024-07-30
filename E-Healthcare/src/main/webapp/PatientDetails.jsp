@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Patient Registration</title>
 </head>
-<body>
+<body id="i">
 <h2 style="text-align: center;">Patient Registration Form</h2>
 <center>
 <table border="1px" id="tb">
@@ -60,6 +60,11 @@ width: 150px;
 height: 40px;
 border-radius: 10px;
 background-color:  pink;
+}
+#i
+{
+background-image: url("images/regback.jpg");
+background-size: cover;
 }
 </style>
 </html>

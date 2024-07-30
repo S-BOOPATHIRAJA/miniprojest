@@ -15,6 +15,11 @@ body {
   margin: 0;
   padding: 20px;
 }
+#i
+{
+background-image: url("images/pic1.jpg");
+background-size: cover;
+}
 
 .container {
   display: grid;
@@ -59,8 +64,8 @@ body {
 }
 </style>
 </head>
-<body>
-<h1>Doctor Profiles</h1>
+<body id="i">
+<h1>Doctors Profiles</h1>
 <div class="container">
 <%
     

@@ -15,7 +15,11 @@ body {
   margin: 0;
   padding: 20px;
 }
-
+#i
+{
+background-image: url("images/pic1.jpg");
+background-size: cover;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -59,8 +63,8 @@ body {
 }
 </style>
 </head>
-<body>
-<h1>Doctor Profiles</h1>
+<body id="i">
+<h1>Doctors Profiles</h1>
 <div class="container">
 <%
     String sp = (String) request.getAttribute("sp");

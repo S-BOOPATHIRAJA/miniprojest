@@ -49,6 +49,11 @@ body {
 .card h4 {
   margin: 0 0 10px 0; /* Adjusts margin below the name */
 }
+#i
+{
+background-image: url("images/pic1.jpg");
+background-size: cover;
+}
 
 .card p {
   margin: 5px 0; /* Adds spacing between details */
@@ -59,7 +64,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body id="i">
 <h1>Your Profile</h1>
 <div class="container">
 <%

@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -46,36 +47,29 @@ public class DoctorCont extends HttpServlet {
 			System.out.println(fp.getContentType());
 			istrm=fp.getInputStream();
 		}
+		DoctorDao dd= new DoctorDao();
+		boolean tt=dd.verifyEmailAndMob(email,mob);
+		if(tt==false)
+		{
+		
 		Connection con=null;
 		String msg=null;
 		try {
+			dd.insertDoctorDetails(pname,address,gender,email,pass,istrm,istrm1,mob);
+			 request.setAttribute("email", email);
+			 RequestDispatcher rd = request.getRequestDispatcher("DoctorProfile.jsp");
+			 rd.forward(request, response);
 			
-			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-			 con=DriverManager.getConnection(url,unm,pwd);
-		String sql = "INSERT INTO Doctorsdata (D_Name, D_specialized, gender, pic,medi_lic,mobile,email,pass) VALUES (?, ?, ?, ?,?,?,?,?)";
-			 PreparedStatement ps=con.prepareStatement(sql);
-			 ps.setString(1, pname);
-			 ps.setString(2, address);
-			 ps.setString(3, gender);
-			 ps.setString(7, email);
-			 ps.setString(8, pass);
-			 if(istrm != null) {
-				 ps.setBlob(4, istrm);
-			 }
-			 if(istrm1 != null) {
-				 ps.setBlob(5, istrm1);
-			 }
-			 ps.setLong(6, mob);
-			 
-			 int res=ps.executeUpdate();
-			 if (res > 0) {
-	                response.getWriter().println("Post uploaded successfully!");
-	            }
-			 con.close();
 			 
 		}
 		catch (SQLException e) {
             e.printStackTrace();
+		}
+		}
+		else
+		{
+			RequestDispatcher rd = request.getRequestDispatcher("EmailMobileExists.jsp");
+			rd.forward(request, response);
 		}
 		
 	

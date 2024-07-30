@@ -1,5 +1,6 @@
 package datapack;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,6 +50,7 @@ public class DoctorDao {
         }
         return rs;
     }
+    // Shows Doctor profile after login
     public ResultSet getDoctorProfile(String email) {
         String sql = "SELECT * FROM doctorsdata WHERE email = ?";
         try {
@@ -60,6 +62,7 @@ public class DoctorDao {
         }
         return rs;
     }
+    //verifies Doctors login
     public boolean checkDoc(String email,String pass)
     {
     	boolean result=false;
@@ -75,6 +78,8 @@ public class DoctorDao {
          }
     	 return result;
     }
+    
+    //verifies email present in the db
     public boolean verifyEmail(String email)
     {
     	boolean result=false;
@@ -90,6 +95,7 @@ public class DoctorDao {
     	 return result;
     }
  
+    // updates the password 
 	public void updatePass(String pass,String email) {
 		// TODO Auto-generated method stub
 		String sql = "update Doctorsdata set pass=? where email=?";
@@ -103,5 +109,39 @@ public class DoctorDao {
         } catch (SQLException s) {
             s.printStackTrace();
         }
+	}
+	public void insertDoctorDetails(String pname,String address,String gender,String email,String pass,InputStream istrm,InputStream istrm1,long mob) throws SQLException
+	{
+		String sql = "INSERT INTO Doctorsdata (D_Name, D_specialized, gender, pic,medi_lic,mobile,email,pass) VALUES (?, ?, ?, ?,?,?,?,?)";
+		  pst=con.prepareStatement(sql);
+		 pst.setString(1, pname);
+		 pst.setString(2, address);
+		 pst.setString(3, gender);
+		 pst.setString(7, email);
+		 pst.setString(8, pass);
+		 if(istrm != null) {
+			 pst.setBlob(4, istrm);
+		 }
+		 if(istrm1 != null) {
+			 pst.setBlob(5, istrm1);
+		 }
+		 pst.setLong(6, mob);
+		 
+		 pst.executeUpdate();
+	}
+
+	public boolean verifyEmailAndMob(String email, long mob) {
+		boolean result=false;
+    	String sql = "select * from Doctorsdata where email=?and mobile=?";
+    	 try {
+             pst = con.prepareStatement(sql);
+             pst.setString(1, email);
+             pst.setLong(2, mob);
+             rs = pst.executeQuery();
+             result=rs.next();
+         } catch (SQLException s) {
+             s.printStackTrace();
+         }
+    	 return result;
 	}
 }
