@@ -17,8 +17,8 @@ body {
 }
 #i
 {
-background-image: url("images/pic1.jpg");
-background-size: cover;
+background-image: url("images/back1.jpg");
+background-size: contain;
 }
 
 .container {

@@ -25,7 +25,7 @@ border-color: rgb(122, 217, 255);">
 <br>
 </div>
 <div style="margin-top: 20px">
-<a href="ForgetPass.jsp" style="margin-left: 120px; font-size: 14px">Forget password?</a>
+<a href="ForgetPass.html" style="margin-left: 120px; font-size: 14px">Forget password?</a>
 </div>
 <div id="fc" style="margin-left: 70px;margin-top: 60px">
 Don't have an account? <a href="Doctor.jsp">register</a>

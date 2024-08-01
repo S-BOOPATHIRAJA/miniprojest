@@ -18,8 +18,9 @@ body {
 #i
 {
 background-image: url("images/back1.jpg");
-background-size: cover;
+background-size: contain;
 }
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -64,29 +65,34 @@ background-size: cover;
 </style>
 </head>
 <body id="i">
-<h1>Doctors Profiles</h1>
+<h1>Patients Profiles</h1>
 <div class="container">
 <%
-    String sp = (String) request.getAttribute("sp");
+    
     DoctorDao dd = new DoctorDao();
-    ResultSet rs = dd.getDoctor(sp);
+    ResultSet rs = dd.getAllPatients();
 
     while (rs.next()) {
-    	int id=rs.getInt("D_id");
-        String name = rs.getString("D_Name");
-        String spc = rs.getString("D_specialized");
+    	int id=rs.getInt("pid");
+        String name = rs.getString("Name");
+        String address = rs.getString("Address");
         String gen = rs.getString("gender");
-        long mobile = rs.getLong("mobile");
+        long mobile = rs.getLong("contact");
+        int age=rs.getInt("Age");
+        String problem= rs.getString("Problem");
 %>
 
 <div class="card">
-  <img src="DoctorImage?id=<%= id %>" alt="Avatar">
+  <img src="PatientImage?id=<%= id %>" alt="Avatar">
   <div class="container">
-    <h4>Doctor Name: <b><%= name %></b></h4>
-    <p>Specialized In: <%= spc %></p>
+    <h4>Patient Name: <b><%= name %></b></h4>
+    <p>Age: <%=age %></p>
+   
     <p>Gender: <%= gen %></p>
+    <p>Problem: <%=problem %></p>
+     <p>Address: <%= address %></p>
     <p>Mobile No: <%= mobile %></p>
-		<input type="submit" value="Fix Appoinment" id="button-1"/>
+		
   </div>
 </div>
 

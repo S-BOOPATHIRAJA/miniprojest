@@ -50,6 +50,16 @@ public class DoctorDao {
         }
         return rs;
     }
+    //Method to retrieve All Patients by Admin
+    public ResultSet getAllPatients() throws SQLException
+    {
+    	String sql="select * from patientdata";
+    	pst= con.prepareStatement(sql);
+    	ResultSet rs = pst.executeQuery();
+    	return rs;
+    	
+    }
+    
     // Shows Doctor profile after login
     public ResultSet getDoctorProfile(String email) {
         String sql = "SELECT * FROM doctorsdata WHERE email = ?";

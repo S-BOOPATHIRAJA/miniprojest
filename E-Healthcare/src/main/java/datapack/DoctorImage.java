@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DoctorImage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String mobileStr = request.getParameter("id");
+        
 
         try {
             int id = Integer.parseInt(mobileStr);
@@ -48,5 +49,7 @@ public class DoctorImage extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+      
     }
+    
 }
