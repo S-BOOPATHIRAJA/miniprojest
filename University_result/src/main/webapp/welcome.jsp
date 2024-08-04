@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="one">
+			<div id="three">
+
+
+<a href="index2.html"">Login</a> 
+<a href="logout" method="get">Logout</a>
+
+<a href="dashboard" method="post">Deshborad</a>
+</div>
+</div>
+<h1>
+Welcome..
+<%
+
+HttpSession hs=request.getSession();
+out.print(hs.getAttribute("bbb"));
+%>
+</h1>
+
+</body>
+<style>
+body{
+		text-align: center;
+			}
+			#one{
+		text-align: center;
+		width: 100%;
+		height: 100px;
+		border: 1px solid black;
+		background-color: gray;
+		
+		
+	}
+	#three{
+		padding-top: 40px;
+		
+	}
+	a{
+		padding: 50px;
+		color: black;
+		font-size: 30px;
+	}
+	a:hover{
+		color: white;
+		}
+</style>
+</html>
