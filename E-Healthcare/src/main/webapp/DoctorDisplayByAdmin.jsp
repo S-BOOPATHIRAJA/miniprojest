@@ -78,12 +78,21 @@ background-size: contain;
         String spc = rs.getString("D_specialized");
         String gen = rs.getString("gender");
         long mobile = rs.getLong("mobile");
+        String gen1="";
+        if(gen.equals("Male"))
+        {
+          gen1="Mr.";
+        }
+        else
+        {
+          gen1="Mrs."; 
+        }
 %>
 
 <div class="card">
   <img src="DoctorImage?id=<%= id %>" alt="Avatar">
   <div class="container">
-    <h4>Doctor Name: <b><%= name %></b></h4>
+    <h4>Doctor Name: <b><%=" Dr."+ name+ " (MBBS)" %></b></h4>
     <p>Specialized In: <%= spc %></p>
     <p>Gender: <%= gen %></p>
     <p>Mobile No: <%= mobile %></p>

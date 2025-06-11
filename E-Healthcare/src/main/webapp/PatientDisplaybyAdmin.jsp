@@ -65,7 +65,7 @@ background-size: contain;
 </style>
 </head>
 <body id="i">
-<h1>Patients Profiles</h1>
+<h1>Patients Details</h1>
 <div class="container">
 <%
     

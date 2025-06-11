@@ -83,7 +83,7 @@ background-size: cover;
 <div class="card">
   <img src="DoctorImage?id=<%= id %>" alt="Avatar">
   <div class="container">
-    <h4>Doctor Name: <b><%= name %></b></h4>
+    <h4>Doctor Name: <b><%=" Dr."+ name+ " (MBBS)" %></b></h4>
     <p>Specialized In: <%= spc %></p>
     <p>Gender: <%= gen %></p>
     <p>Mobile No: <%= mobile %></p>
